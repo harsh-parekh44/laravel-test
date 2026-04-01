@@ -10,5 +10,11 @@
     <h2>Welcome in laravel </h2>
     <p>Laravel Prectice for git</p>
     <h2>Into the starlignt </h2>
+    <form action="" method="post">
+        NAme: <input type="text" name="name" id="name"><br>
+        EMial: <input type="text" name="email" id="emial"> <br>
+        PAssword: <input type="text" name="password" id="password"> <br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
 </body>
 </html>
