@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-        public function register()
+    public function register()
     {
         return view('register');
     }
@@ -17,7 +17,7 @@ class AuthController extends Controller
     // Save Register
     public function registerUser(Request $request)
     {
-        
+
         $request->validate([
             'name' => 'min:5|max:255',
             'email' => 'email|unique:users1s',
@@ -28,17 +28,17 @@ class AuthController extends Controller
         ]);
 
         $user = User1::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'dob' => $request->dob,
-        'phone_number' => $request->phone_number,
-        'gender' => $request->gender,
-    ]);
-    
-    session(['user' => $user]);
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'dob' => $request->dob,
+            'phone_number' => $request->phone_number,
+            'gender' => $request->gender,
+        ]);
 
-    return response()->json(['status' => 'success']);
+        session(['user' => $user]);
+
+        return response()->json(['status' => 'success']);
     }
 
     public function login()
@@ -77,15 +77,14 @@ class AuthController extends Controller
     }
 
     public function deleteAccount(Request $request)
-{
-    $user = session('user');
-    if($user) {
-        User1::where('id', $user->id)->delete();
-        Session::forget('user'); // logout user
-        return response()->json(['status' => 'success']);
+    {
+        $user = session('user');
+        if ($user) {
+            User1::where('id', $user->id)->delete();
+            Session::forget('user'); // logout user
+            return response()->json(['status' => 'success']);
+        }
+
+        return response()->json(['status' => 'error'], 401);
     }
-
-    return response()->json(['status' => 'error'], 401);
 }
-}
-

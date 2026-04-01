@@ -45,7 +45,7 @@
         Gender:
         <input type="radio" name="gender" id="gender" value="male" {{ old('gender') == 'male' ? 'checked' : '' }}> Male
         <input type="radio" name="gender" id="gender" value="female" {{ old('gender') == 'female' ? 'checked' : '' }}> Female 
-        <input type="radio" name="gender" id="gender" value="other" {{ old('gender') == 'other' ? 'checked' : '' }}> Other <br>
+        {{-- <input type="radio" name="gender" id="gender" value="other" {{ old('gender') == 'other' ? 'checked' : '' }}> Other <br> --}}
         @error('gender')
             <span class="text-danger">{{ $message }}</span>
         @enderror

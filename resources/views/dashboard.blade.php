@@ -1,7 +1,9 @@
+<div align="center" style="margin-top: 16rem">
 <h1>Welcome: {{ session('user')->name }}</h1>
+    <a href="/logout">Logout</a> | 
+    <a href="#" id="deleteAccount" style="color:red;">Delete Account</a>
 
-<a href="/logout">Logout</a> | 
-<a href="#" id="deleteAccount" style="color:red;">Delete Account</a>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
