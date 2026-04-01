@@ -15,5 +15,5 @@ class marks extends Model
 
     public function subject(){
         return $this->belongsTo(Subject::class);
-    }
+    }  
 }
