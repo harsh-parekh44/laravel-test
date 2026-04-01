@@ -6,8 +6,8 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('register');
+})->name('register');
 
 Route::get('/index', [UserController::class, 'index']);
 
@@ -29,7 +29,7 @@ Route::post('/students/update/{id}', [StudentController::class, 'update'])->name
 Route::get('/students/search', [StudentController::class, 'search'])->name('student.search');
 
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+// Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerUser']);
 
 // Login
