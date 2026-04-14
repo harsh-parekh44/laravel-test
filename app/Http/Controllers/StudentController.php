@@ -33,7 +33,7 @@ class StudentController extends Controller
             'subjects_id' => 'required|exists:subjects,id',
             'marks' => 'required|numeric',
             'graduation' => 'required|string',
-            'profile_picture' => 'mimes:jpeg,jpg,png,gif,svg,webp,avif|max:2048' //2MB max size
+            'image' => 'mimes:jpeg,jpg,png,gif,svg,webp,avif|max:2048' //2MB max size
         ]);
 
         $student = Student::create([
@@ -141,7 +141,7 @@ class StudentController extends Controller
         if ($request->ajax()) {
             return view('student.studentsdata', compact('students', 'sort'))->render();
         }
-        return view('student.studentsdata', compact('students', 'sort'))->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('student.studentsdata', compact('students', 'sort'))->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     public function search(Request $request)
